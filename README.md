@@ -13,11 +13,11 @@ This repository contains the code for reproducing the experiments for the paper 
   * [SDPG](#sdpg)
   * [DDPG](#ddpg)
   * [RPO](#rpo)
-  * [CALF Stabilizng Policy](#calf-stabilizing-policy)
+  * [Nominal Stabilizng Policy](#calf-stabilizing-policy)
   * [CALF](#calf)
-  * [MPC with horizon 2](#mpc-horizon-2)
-  * [MPC with horizon 5](#mpc-horizon-5)
-  * [MPC with horizon 8](#mpc-horizon-8)
+  * [MPC (horizon 2)](#mpc-horizon-2)
+  * [MPC (horizon 5)](#mpc-horizon-5)
+  * [MPC (horizon 8)](#mpc-horizon-8)
     
 
 ## Setting the environment
@@ -95,11 +95,11 @@ See the following sections of the present README:
 * [SDPG](#sdpg)
 * [DDPG](#ddpg)
 * [RPO](#rpo)
-* [CALF Stabilizng Policy](#calf-stabilizing-policy)
+* [Nominal Stabilizng Policy](#nominal-stabilizing-policy)
 * [CALF](#calf)
-* [MPC with horizon 2](#mpc-horizon-2)
-* [MPC with horizon 5](#mpc-horizon-5)
-* [MPC with horizon 8](#mpc-horizon-8)
+* [MPC (horizon 2)](#mpc-horizon-2)
+* [MPC (horizon 5)](#mpc-horizon-5)
+* [MPC (horizon 8)](#mpc-horizon-8)
 
 For every run the code generates the specific folder, where all the 
 run artifacts are stored (observations, total objectives, etc.). 
