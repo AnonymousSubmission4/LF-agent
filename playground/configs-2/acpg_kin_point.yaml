@@ -1,0 +1,3 @@
+seed: 2
+
+@controller.critic.optimizer.opt_options.lr: 1.0E-3
