@@ -13,7 +13,7 @@ This repository contains the code for reproducing the experiments for the paper 
   * [SDPG](#sdpg)
   * [DDPG](#ddpg)
   * [RPO](#rpo)
-  * [Nominal Stabilizng Policy](#calf-stabilizing-policy)
+  * [Nominal Stabilizng Policy](#nominal-stabilizing-policy)
   * [CALF](#calf)
   * [MPC (horizon 2)](#mpc-horizon-2)
   * [MPC (horizon 5)](#mpc-horizon-5)
