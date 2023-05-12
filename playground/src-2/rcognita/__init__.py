@@ -490,11 +490,11 @@ class main:
             self.callbacks_enabled = False
         else:
             self.callbacks_enabled = True
-        if "--disable-gui" in sys.argv:
-            sys.argv.pop(sys.argv.index("--disable-gui"))
-            self.gui_enabled = False
-        else:
-            self.gui_enabled = True
+        # if "--disable-gui" in sys.argv:
+        #     sys.argv.pop(sys.argv.index("--disable-gui"))
+        self.gui_enabled = False
+        # else:
+        #     self.gui_enabled = True
         self.cooldown_factor = 1.0
         for i, arg in enumerate(sys.argv):
             if "--cooldown-factor" in arg:
@@ -545,7 +545,7 @@ class main:
                 numpy.random.seed(seed)
                 torch.manual_seed(seed)
                 random.seed(seed)
-                with shelve.open('.report') as f:
+                with shelve.open(".report") as f:
                     f["termination"] = "running"
                     f["started"] = datetime.datetime.now()
                     f["args"] = sys.argv
@@ -597,7 +597,9 @@ class main:
                             r["path"] = os.getcwd()
                             r["pid"] = os.getpid()
                         res = old_app(ccfg)
-                        self.__class__.callbacks[0].log("Script terminated successfully.")
+                        self.__class__.callbacks[0].log(
+                            "Script terminated successfully."
+                        )
                     except RcognitaExitException as e:
                         res = e
                     except Exception as e:
@@ -614,9 +616,12 @@ class main:
                                 f"Termination procedure for {callback.__class__.__name__} failed."
                             )
                             callback.exception(e)
-                    with shelve.open('.report') as f:
-                        f["termination"] = "successful" if not isinstance(res, Exception) else \
-                            ''.join(traceback.format_tb(res.__traceback__))
+                    with shelve.open(".report") as f:
+                        f["termination"] = (
+                            "successful"
+                            if not isinstance(res, Exception)
+                            else "".join(traceback.format_tb(res.__traceback__))
+                        )
                         f["finished"] = datetime.datetime.now()
                     ccfg.refresh()
                     if self.is_sweep:
