@@ -6,7 +6,7 @@ This repository contains the code for reproducing the experiments described in t
 
 * **[Setting up a virtual environment](#setting-up-a-virtual-environment)**
   * [Installing pyenv](#installing-pyenv)
-  * [Manual creation of virtual environments](#manual-creation-of-virtual-python-environment) 
+  * [Manual creation of virtual environments](#manual-creation-of-virtual-environments) 
 * **[Run experiments](#run-experiments)**
   * [SARSA](#sarsa)
   * [DQN](#dqn)
@@ -18,6 +18,7 @@ This repository contains the code for reproducing the experiments described in t
   * [MPC (horizon 2)](#mpc-horizon-2)
   * [MPC (horizon 5)](#mpc-horizon-5)
   * [MPC (horizon 8)](#mpc-horizon-8)
+* [Reading raw experiment data](#reading-raw-experiment-data)
     
 
 ## Setting up a virtual environment
@@ -30,7 +31,7 @@ It is reasonable to run the experiments in a virtual environment.
 Our core team uses [pyenv](https://github.com/pyenv/pyenv) for 
 managing virtual environments. We provide [brief guide](#installing-pyenv) here how to install it. But we strongly recommend to 
 refer to original [readme](https://github.com/pyenv/pyenv/#readme) for details. However, there exists a 
-[different way](#manual-creation-of-virtual-python-environment) to create a virtual environment. 
+[different way](#manual-creation-of-virtual-environments) to create a virtual environment. 
 You can choose either you want.
 
 ### Installing pyenv 
@@ -111,7 +112,7 @@ For every run the code creates the folder with the name of the following structu
 {datetime}_{algorithm}
 ```
 In the folder a subdirectory is created, where the resulting experimental data is stored.
-After the run is complete the plots would be contained in `gfx/`. Perhaps the simplest way to access the resulting experimental data would be via the logs stored in `__init__.log`, however if one would like to obtain the metrics as pythonic data structures, a means of extracting said metrics is described [here](#reading-raw-data).
+After the run is complete the plots would be contained in `gfx/`. Perhaps the simplest way to access the resulting experimental data would be via the logs stored in `__init__.log`, however if one would like to obtain the metrics as pythonic data structures, a means of extracting said metrics is described [here](#reading-raw-experiment-data).
 
 If you would like to run the experiment with a particular random seed just add `+seed=YOUR_NUMERIC_SEED` to the command. 
 For instance, let us consider the run command for [DQN](#dqn) algorithm for Two-tank system: 
@@ -277,7 +278,7 @@ PYTHONPATH=$(pwd)/src-2 python preset_endpoint.py system=lunar_lander controller
 PYTHONPATH=$(pwd)/src-2 python preset_endpoint.py system=cartpole controller=mpc controller.actor.predictor.prediction_horizon=8 scenario.N_episodes=1
 ```
 
-## Reading raw data
+## Reading raw experiment data
 If you would like 
 to exract raw metric data, the code stores it in `.h5` files in `.callbacks/` directory: 
 1. Total costs are located in `.callbacks/TotalObjectiveCallback/`
